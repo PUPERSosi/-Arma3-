@@ -1,0 +1,93 @@
+ambient[]={1,1,1,1}; // Окружающее освещение
+diffuse[]={1,1,1,1}; // диффузное освещение 
+forcedDiffuse[]={0,0,0,1}; // Он помогает имитировать так называемую полупрозрачность
+emmisive[]={0,0,0,0}; // Люминесценция. Значения дают количество света, которое светит сама по себе. Используйте его для источников света.
+specular[]={0.029999999,0.029999999,0.029999999,1}; // установка глянца и зеркальности для материала
+specularPower=70; // Cила отражения.
+PixelShaderID="Super"; //  Пиксельные шейдеры
+VertexShaderID="Super"; // Вертексные шейдеры
+class Stage1 // Каждый из шейдеров использует специфический класс-этап Stage 
+{
+	texture="Test\data\Camo1_nohq.paa"; // Путь до normal(Nohq)
+	uvSource="tex";
+	class uvTransform
+	{
+		aside[]={1,0,0};
+		up[]={0,1,0};
+		dir[]={0,0,0};
+		pos[]={0,0,0};
+	};
+};
+class Stage2
+{
+	texture="#(argb,8,8,3)color(0.5,0.5,0.5,0.5,DT)";
+	uvSource="tex";
+	class uvTransform
+	{
+		aside[]={1,0,0};
+		up[]={0,1,0};
+		dir[]={0,0,0};
+		pos[]={0,0,0};
+	};
+};
+class Stage3
+{
+	texture="#(argb,8,8,3)color(0.0,0.0,0.0,0.0,MC)";
+	uvSource="tex";
+	class uvTransform
+	{
+		aside[]={1,0,0};
+		up[]={0,1,0};
+		dir[]={0,0,0};
+		pos[]={0,0,0};
+	};
+};
+class Stage4
+{
+	texture="Test\data\Camo1_as.paa"; // Путь до AS
+	uvSource="tex";
+	class uvTransform
+	{
+		aside[]={1,0,0};
+		up[]={0,1,0};
+		dir[]={0,0,0};
+		pos[]={0,0,0};
+	};
+};
+class Stage5
+{
+	texture="Test\data\Camo1_smdi.paa"; // Путь до SMDI
+	uvSource="tex";
+	class uvTransform
+	{
+		aside[]={1,0,0};
+		up[]={0,1,0};
+		dir[]={0,0,0};
+		pos[]={0,0,0};
+	};
+};
+class Stage6
+{
+	texture="#(ai,64,64,1)fresnel(7.1,2.8)";
+	uvSource="tex";
+	class uvTransform
+	{
+		aside[]={1,0,0};
+		up[]={0,1,0};
+		dir[]={0,0,0};
+		pos[]={0,0,0};
+	};
+};
+class Stage7
+{
+	texture="a3\data_f\env_land_co.paa"; // Отражения некое 
+	useWorldEnvMap="true";
+	uvSource="tex";
+	class uvTransform
+	{
+		aside[]={1,0,0};
+		up[]={0,1,0};
+		dir[]={0,0,0};
+		pos[]={0,0,0};
+	};
+};
